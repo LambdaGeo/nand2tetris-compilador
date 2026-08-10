@@ -1,0 +1,45 @@
+# Licença
+
+Copyright (c) Prof. Sergio Costa
+
+## Texto e código do livro
+
+Este trabalho está licenciado sob a **Creative Commons Atribuição-CompartilhaIgual 4.0
+Internacional (CC BY-SA 4.0)**.
+
+Você tem o direito de:
+
+- **Compartilhar** — copiar e redistribuir o material em qualquer suporte ou formato
+- **Adaptar** — remixar, transformar e criar a partir do material, para qualquer fim,
+  inclusive comercial
+
+De acordo com os seguintes termos:
+
+- **Atribuição** — Você deve dar o crédito apropriado, prover um link para a licença e
+  indicar se mudanças foram feitas.
+- **CompartilhaIgual** — Se você remixar, transformar ou criar a partir do material, tem de
+  distribuir as suas contribuições sob a mesma licença que o original.
+
+Texto completo da licença:
+<https://creativecommons.org/licenses/by-sa/4.0/legalcode.pt>
+
+Resumo em português:
+<https://creativecommons.org/licenses/by-sa/4.0/deed.pt-BR>
+
+## Atribuição a terceiros
+
+Este é um material independente, **não afiliado e não endossado** pelos autores do
+Nand2Tetris.
+
+A plataforma Hack, a linguagem Jack, a máquina virtual e os formatos de arquivo descritos
+neste livro são especificações do projeto *From Nand to Tetris*, de **Noam Nisan** e
+**Shimon Schocken** (<https://www.nand2tetris.org/>). Essas especificações são descritas
+aqui com nossas próprias palavras, a título de documentação técnica e ensino.
+
+Nenhum texto, slide, figura, arquivo de teste ou software dos autores originais é
+redistribuído neste repositório. O software oficial e os arquivos de projeto devem ser
+obtidos diretamente em <https://www.nand2tetris.org/software>.
+
+Obras de terceiros citadas ao longo do livro (Aho et al., Cooper & Torczon, Sebesta,
+Nystrom, Ricarte, entre outros) são referenciadas bibliograficamente no Apêndice E, sem
+reprodução de conteúdo.

@@ -1,0 +1,19 @@
+# MkDocs
+site/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Ferramentas
+.claude/settings.local.json
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# PDFs de terceiros nao devem ser versionados neste repositorio.
+# Slides e materiais autorais sao a excecao: adicione-os com `git add -f`.
+*.pdf

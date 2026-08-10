@@ -1,0 +1,97 @@
+site_name: Compiladores — do zero ao Hack
+site_description: Um livro-disciplina de Compiladores baseado no Nand2Tetris, no espírito de Crafting Interpreters
+site_author: Prof. Sergio Costa
+site_url: https://lambdageo.github.io/nand2tetris-compilador/
+repo_url: https://github.com/LambdaGeo/nand2tetris-compilador
+repo_name: LambdaGeo/nand2tetris-compilador
+edit_uri: edit/main/docs/
+copyright: >
+  Prof. Sergio Costa — licenciado sob
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt-BR">CC BY-SA 4.0</a>
+
+theme:
+  name: material
+  language: pt
+  font: false
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Alternar para modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Alternar para modo claro
+
+plugins:
+  - search
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences
+  - tables
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/lambdageo.css
+
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Início: index.md
+  - "Parte 1 — Front-end (Análise Sintática)":
+      - unidade-1-frontend/00-introducao.md
+      - unidade-1-frontend/01-linguagens-e-gramaticas.md
+      - unidade-1-frontend/02-aquecimento-tradutor.md
+      - unidade-1-frontend/03-a-linguagem-jack.md
+      - unidade-1-frontend/04-analisador-lexico.md
+      - unidade-1-frontend/05-analisador-sintatico.md
+  - "Parte 2 — O Compilador (Geração de Código VM)":
+      - unidade-2-middleend/06-tabela-de-simbolos.md
+      - unidade-2-middleend/07-representacoes-intermediarias.md
+      - unidade-2-middleend/09-codegen-expressoes-comandos.md
+      - unidade-2-middleend/10-codegen-subrotinas-objetos.md
+  - "Parte 3 — O Tradutor VM (Geração de Código Assembly)":
+      - unidade-2-middleend/08-a-vm-hack.md
+      - unidade-2-middleend/11-vm-translator-parte1.md
+      - unidade-3-backend/12-vm-translator-parte2.md
+      - unidade-3-backend/13-geracao-codigo-alvo.md
+  - "Parte 4 — O Montador (Assembly para Código de Máquina)":
+      - unidade-3-backend/14-assembly-hack.md
+      - unidade-3-backend/15-construindo-o-assembler.md
+  - "Apêndices":
+      - apendices/a-gramatica-jack.md
+      - apendices/b-especificacao-vm.md
+      - apendices/c-especificacao-assembly-hack.md
+      - apendices/d-ambiente-e-ferramentas.md
+      - apendices/e-referencias.md
+
