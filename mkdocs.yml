@@ -79,10 +79,10 @@ nav:
   - "Parte 2 — O Compilador (Geração de Código VM)":
       - unidade-2-middleend/06-tabela-de-simbolos.md
       - unidade-2-middleend/07-representacoes-intermediarias.md
+      - unidade-2-middleend/08-a-vm-hack.md
       - unidade-2-middleend/09-codegen-expressoes-comandos.md
       - unidade-2-middleend/10-codegen-subrotinas-objetos.md
   - "Parte 3 — O Tradutor VM (Geração de Código Assembly)":
-      - unidade-2-middleend/08-a-vm-hack.md
       - unidade-2-middleend/11-vm-translator-parte1.md
       - unidade-3-backend/12-vm-translator-parte2.md
       - unidade-3-backend/13-geracao-codigo-alvo.md
