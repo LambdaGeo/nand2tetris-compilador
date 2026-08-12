@@ -1,4 +1,4 @@
-# 14. Assembly Hack (especificação)
+# 11. Assembly Hack (especificação)
 
 Este capítulo especifica, por completo, a linguagem Assembly Hack — a linguagem simbólica para a qual o VM Translator (capítulos 11-12) traduz, e que o Assembler (capítulo 15) vai finalmente converter em código de máquina binário. É referência de consulta, não um capítulo incremental — mas vale lê-lo por inteiro pelo menos uma vez antes de atacar o Assembler, porque cada peça (registradores, instruções, símbolos) é usada o tempo todo no capítulo seguinte.
 
