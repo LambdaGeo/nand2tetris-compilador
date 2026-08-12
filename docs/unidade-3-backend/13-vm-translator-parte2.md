@@ -1,4 +1,4 @@
-# 12. VM Translator — Parte 2: controle de fluxo e funções
+# 13. VM Translator — Parte 2: controle de fluxo e funções
 
 A Parte 1 (capítulo 11) traduziu aritmética e acesso à memória — comandos que não atravessam fronteiras de função. Este capítulo fecha o VM Translator (Project 8) com a parte mais sofisticada do tradutor: **rótulos com escopo de função** e o protocolo completo de **chamada de função** (`call`/`function`/`return`), que é o que torna possível compilar recursão corretamente. Ao final, teremos uma cadeia de tradução completa: Jack → VM → Assembly Hack.
 

@@ -1,4 +1,4 @@
-# 11. VM Translator — Parte 1: aritmética e memória
+# 12. VM Translator — Parte 1: aritmética e memória
 
 Com o compilador Jack → VM completo (capítulos 9 e 10), fechamos a metade "de cima" da nossa cadeia de tradução. Este capítulo começa a outra metade: o **VM Translator**, que traduz código VM (a IR especificada no capítulo 8) para Assembly Hack — a linguagem que o capítulo 14 vai detalhar e que o Assembler (capítulo 15) finalmente converte em código de máquina.
 
