@@ -12,13 +12,13 @@
         <meta name="author" content="Prof. Sergio Costa">
       
       
-        <link rel="canonical" href="https://lambdageo.github.io/nand2tetris-compilador/unidade-2-middleend/11-vm-translator-parte1/">
+        <link rel="canonical" href="https://lambdageo.github.io/nand2tetris-compilador/unidade-3-backend/14-geracao-codigo-alvo/">
       
       
-        <link rel="prev" href="../08-a-vm-hack/">
+        <link rel="prev" href="../13-vm-translator-parte2/">
       
       
-        <link rel="next" href="../../unidade-3-backend/12-vm-translator-parte2/">
+        <link rel="next" href="../15-construindo-o-assembler/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>11. VM Translator — Parte 1: aritmética e memória - Compiladores — do zero ao Hack</title>
+        <title>14. Geração de código alvo (consolidação teórica) - Compiladores — do zero ao Hack</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#11-vm-translator-parte-1-aritmetica-e-memoria" class="md-skip">
+        <a href="#14-geracao-de-codigo-alvo-consolidacao-teorica" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11. VM Translator — Parte 1: aritmética e memória
+              14. Geração de código alvo (consolidação teórica)
             
           </span>
         </div>
@@ -600,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-tabela-de-simbolos/" class="md-nav__link">
+      <a href="../../unidade-2-middleend/06-tabela-de-simbolos/" class="md-nav__link">
         
   
   
@@ -628,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-representacoes-intermediarias/" class="md-nav__link">
+      <a href="../../unidade-2-middleend/07-representacoes-intermediarias/" class="md-nav__link">
         
   
   
@@ -656,7 +656,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../09-codegen-expressoes-comandos/" class="md-nav__link">
+      <a href="../../unidade-2-middleend/08-a-vm-hack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. A VM Hack (especificação)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidade-2-middleend/09-codegen-expressoes-comandos/" class="md-nav__link">
         
   
   
@@ -684,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-codegen-subrotinas-objetos/" class="md-nav__link">
+      <a href="../../unidade-2-middleend/10-codegen-subrotinas-objetos/" class="md-nav__link">
         
   
   
@@ -773,14 +801,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-a-vm-hack/" class="md-nav__link">
+      <a href="../11-assembly-hack/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. A VM Hack (especificação)
+    11. Assembly Hack (especificação)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidade-2-middleend/12-vm-translator-parte1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. VM Translator — Parte 1: aritmética e memória
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-vm-translator-parte2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. VM Translator — Parte 2: controle de fluxo e funções
   
 
     
@@ -817,7 +901,7 @@
   <span class="md-ellipsis">
     
   
-    11. VM Translator — Parte 1: aritmética e memória
+    14. Geração de código alvo (consolidação teórica)
   
 
     
@@ -835,7 +919,7 @@
   <span class="md-ellipsis">
     
   
-    11. VM Translator — Parte 1: aritmética e memória
+    14. Geração de código alvo (consolidação teórica)
   
 
     
@@ -861,10 +945,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#por-que-o-vm-translator-e-um-tradutor-nao-um-compilador" class="md-nav__link">
+  <a href="#o-que-ja-construimos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Por que o VM Translator é um tradutor, não um compilador
+        O que já construímos
       
     </span>
   </a>
@@ -872,65 +956,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#modelo-de-memoria-hack" class="md-nav__link">
+  <a href="#por-que-uma-etapa-intermediaria-extra" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modelo de memória: Hack
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#traduzindo-pushpop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Traduzindo push/pop
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#traduzindo-comandos-aritmeticos-e-logicos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Traduzindo comandos aritméticos e lógicos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uma-tabela-de-custos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Uma tabela de custos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercicio-guiado" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exercício guiado
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#o-que-vem-a-seguir" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        O que vem a seguir
+        Por que uma etapa intermediária extra
       
     </span>
   </a>
@@ -941,62 +970,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../unidade-3-backend/12-vm-translator-parte2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    12. VM Translator — Parte 2: controle de fluxo e funções
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../unidade-3-backend/13-geracao-codigo-alvo/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    13. Geração de código alvo (consolidação teórica)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1070,35 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../unidade-3-backend/14-assembly-hack/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    14. Assembly Hack (especificação)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../unidade-3-backend/15-construindo-o-assembler/" class="md-nav__link">
+      <a href="../15-construindo-o-assembler/" class="md-nav__link">
         
   
   
@@ -1354,10 +1299,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#por-que-o-vm-translator-e-um-tradutor-nao-um-compilador" class="md-nav__link">
+  <a href="#o-que-ja-construimos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Por que o VM Translator é um tradutor, não um compilador
+        O que já construímos
       
     </span>
   </a>
@@ -1365,65 +1310,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#modelo-de-memoria-hack" class="md-nav__link">
+  <a href="#por-que-uma-etapa-intermediaria-extra" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modelo de memória: Hack
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#traduzindo-pushpop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Traduzindo push/pop
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#traduzindo-comandos-aritmeticos-e-logicos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Traduzindo comandos aritméticos e lógicos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uma-tabela-de-custos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Uma tabela de custos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercicio-guiado" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exercício guiado
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#o-que-vem-a-seguir" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        O que vem a seguir
+        Por que uma etapa intermediária extra
       
     </span>
   </a>
@@ -1450,224 +1340,19 @@
   
 
 
-<h1 id="11-vm-translator-parte-1-aritmetica-e-memoria">11. VM Translator — Parte 1: aritmética e memória<a class="headerlink" href="#11-vm-translator-parte-1-aritmetica-e-memoria" title="Permanent link">&para;</a></h1>
-<p>Com o compilador Jack → VM completo (capítulos 9 e 10), fechamos a metade "de cima" da nossa cadeia de tradução. Este capítulo começa a outra metade: o <strong>VM Translator</strong>, que traduz código VM (a IR especificada no capítulo 8) para Assembly Hack — a linguagem que o capítulo 14 vai detalhar e que o Assembler (capítulo 15) finalmente converte em código de máquina.</p>
-<p>A partir deste capítulo, o livro muda de estilo: em vez de código construído junto com você, capítulo a capítulo (como fizemos com o <code>JackTokenizer</code> e o <code>CompilationEngine</code>), o VM Translator e o Assembler são apresentados como <strong>teoria + especificação + exercício guiado</strong> — você implementa como atividade prática, comparando sua saída com os testes oficiais do Nand2Tetris. A razão é de escopo: VM Translator e Assembler não são "o compilador Jack" propriamente — são a infraestrutura de back-end que o sustenta.</p>
-<h2 id="por-que-o-vm-translator-e-um-tradutor-nao-um-compilador">Por que o VM Translator é um tradutor, não um compilador<a class="headerlink" href="#por-que-o-vm-translator-e-um-tradutor-nao-um-compilador" title="Permanent link">&para;</a></h2>
-<p>Note a diferença de natureza: o <code>CompilationEngine</code> compila uma linguagem de alto nível (Jack) para uma representação de mais baixo nível (VM) — uma tradução "para baixo" na hierarquia de abstração. O VM Translator, por sua vez, traduz uma linguagem-fonte (código VM) para <strong>outra</strong> linguagem de baixo nível (Assembly Hack) — ambas já próximas da máquina. É uma arquitetura em três estágios:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Código Jack (alto nível)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓ CompilationEngine (capítulos 9-10)
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Código VM (intermediário)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓ VM Translator (capítulos 11-12)
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Assembly Hack (baixo nível)
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ↓ Assembler (capítulo 15)
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Código de máquina Hack
+<h1 id="14-geracao-de-codigo-alvo-consolidacao-teorica">14. Geração de código alvo (consolidação teórica)<a class="headerlink" href="#14-geracao-de-codigo-alvo-consolidacao-teorica" title="Permanent link">&para;</a></h1>
+<p>Antes de mergulhar na especificação de Assembly Hack (capítulo 14) e construir o Assembler (capítulo 15), vale um momento de retrospectiva: o que exatamente aconteceu nos capítulos 11 e 12, e por que essa arquitetura em particular?</p>
+<h2 id="o-que-ja-construimos">O que já construímos<a class="headerlink" href="#o-que-ja-construimos" title="Permanent link">&para;</a></h2>
+<p>Percorremos, sem perceber explicitamente, uma tradução em <strong>duas etapas</strong> dentro do que costuma ser chamado, em conjunto, de "geração de código alvo":</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Código VM (IR, capítulo 8)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓ VM Translator (capítulos 11-12)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Assembly Hack (simbólico, capítulo 14)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓ Assembler (capítulo 15)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Código de máquina Hack (binário)
 </code></pre></div>
-<h2 id="modelo-de-memoria-hack">Modelo de memória: Hack<a class="headerlink" href="#modelo-de-memoria-hack" title="Permanent link">&para;</a></h2>
-<p>A máquina Hack tem uma ROM de instruções e uma RAM de 32K palavras de 16 bits. Os primeiros endereços da RAM têm papéis pré-definidos, que sustentam todo o mapeamento de segmentos VM → memória real:</p>
-<table>
-<thead>
-<tr>
-<th>Endereço RAM</th>
-<th>Registrador</th>
-<th>Papel</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>RAM[0]</code></td>
-<td><code>SP</code></td>
-<td>Ponteiro de topo da pilha</td>
-</tr>
-<tr>
-<td><code>RAM[1]</code></td>
-<td><code>LCL</code></td>
-<td>Endereço-base do segmento <code>local</code></td>
-</tr>
-<tr>
-<td><code>RAM[2]</code></td>
-<td><code>ARG</code></td>
-<td>Endereço-base do segmento <code>argument</code></td>
-</tr>
-<tr>
-<td><code>RAM[3]</code></td>
-<td><code>THIS</code></td>
-<td>Endereço-base do segmento <code>this</code></td>
-</tr>
-<tr>
-<td><code>RAM[4]</code></td>
-<td><code>THAT</code></td>
-<td>Endereço-base do segmento <code>that</code></td>
-</tr>
-<tr>
-<td><code>RAM[5..12]</code></td>
-<td>—</td>
-<td>Segmento <code>temp</code> (8 células)</td>
-</tr>
-<tr>
-<td><code>RAM[13..15]</code></td>
-<td>—</td>
-<td>Uso interno do VM Translator (registradores de trabalho)</td>
-</tr>
-<tr>
-<td><code>RAM[16..255]</code></td>
-<td>—</td>
-<td>Variáveis <code>static</code></td>
-</tr>
-<tr>
-<td><code>RAM[256..2047]</code></td>
-<td>—</td>
-<td>Pilha</td>
-</tr>
-<tr>
-<td><code>RAM[2048..16383]</code></td>
-<td>—</td>
-<td>Heap (objetos e arrays)</td>
-</tr>
-<tr>
-<td><code>RAM[16384..24575]</code></td>
-<td>—</td>
-<td>Mapa de memória da tela</td>
-</tr>
-</tbody>
-</table>
-<p>O princípio geral: os quatro segmentos "dinâmicos" (<code>local</code>, <code>argument</code>, <code>this</code>, <code>that</code>) têm seu endereço-base guardado em um registrador (<code>LCL</code>, <code>ARG</code>, <code>THIS</code>, <code>THAT</code>) que muda a cada chamada de função (capítulo 12) — acessar <code>local i</code> significa sempre <code>RAM[LCL + i]</code>. Já <code>temp</code> e <code>static</code> têm endereço fixo, calculável em tempo de tradução, sem indireção nenhuma.</p>
-<h2 id="traduzindo-pushpop">Traduzindo <code>push</code>/<code>pop</code><a class="headerlink" href="#traduzindo-pushpop" title="Permanent link">&para;</a></h2>
-<p>A tradução de <code>push</code>/<code>pop</code> se divide em dois casos, com custos bem diferentes.</p>
-<p><strong>Segmentos dinâmicos</strong> (<code>local</code>, <code>argument</code>, <code>this</code>, <code>that</code>) exigem calcular um endereço antes de acessar — carregar o registrador-base, somar o índice, então desreferenciar:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// push local i
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>@LCL
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>D=M            // D = valor de LCL (o endereço-base)
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>@i
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>A=D+A          // A = LCL + i
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>D=M            // D = RAM[LCL + i]
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>@SP
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>A=M
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>M=D            // RAM[SP] = D
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>@SP
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>M=M+1          // SP++
-</code></pre></div>
-<p><code>pop</code> para um segmento dinâmico é mais delicado: é preciso calcular o endereço-destino <strong>e</strong> desempilhar um valor, mas só temos os registradores <code>A</code>/<code>D</code>/<code>M</code> para trabalhar — nenhum dos dois cálculos pode "esperar" sem ser guardado em algum lugar. A solução clássica é um registrador de uso geral (<code>R13</code>, uma das células reservadas da tabela acima) como área de rascunho:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// pop local i
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>@LCL
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>D=M
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>@i
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>D=D+A          // D = LCL + i (o endereço-destino)
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>@R13
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>M=D            // R13 = endereço-destino (guardado)
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>@SP
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>AM=M-1         // SP--; A = SP (nova posição do topo)
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>D=M            // D = valor desempilhado
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>@R13
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>A=M            // A = endereço-destino (recuperado)
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>M=D            // RAM[endereço-destino] = valor
-</code></pre></div>
-<p><strong>Segmentos com endereço fixo</strong> (<code>constant</code>, <code>temp</code>, <code>static</code>) dispensam esse cálculo intermediário. <code>constant</code> nem acessa memória — o valor já <em>é</em> o índice:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>// push constant i
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>@i
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>D=A            // D = i (não M — não há memória a ler; o valor é o próprio literal)
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>@SP
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>A=M
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>M=D
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>@SP
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>M=M+1
-</code></pre></div>
-<p><code>temp i</code> é sempre <code>RAM[5+i]</code>, e <code>static i</code> é mapeado para um rótulo simbólico único por arquivo <code>.vm</code> (tipicamente <code>NomeDoArquivo.i</code>) — o Assembler (capítulo 15) se encarrega de atribuir um endereço real a esse rótulo, exatamente como faz com qualquer variável.</p>
-<h2 id="traduzindo-comandos-aritmeticos-e-logicos">Traduzindo comandos aritméticos e lógicos<a class="headerlink" href="#traduzindo-comandos-aritmeticos-e-logicos" title="Permanent link">&para;</a></h2>
-<p>Um comando binário (<code>add</code>, <code>sub</code>, <code>and</code>, <code>or</code>) desempilha dois valores, calcula, e empilha o resultado — mas a implementação evita uma escrita extra fazendo a operação <strong>"in-place"</strong>, sobrescrevendo diretamente a posição onde o resultado deve ficar:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>// add
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>@SP
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>AM=M-1         // SP--; A = posição do segundo operando
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>D=M            // D = segundo operando
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>A=A-1          // A = posição do primeiro operando (SP já foi decrementado uma vez)
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>M=D+M          // RAM[primeiro] = primeiro + segundo (resultado fica exatamente onde deve)
-</code></pre></div>
-<p>Repare que <strong>nenhum novo <code>M=M+1</code> é necessário</strong>: a pilha já encolheu de dois elementos para um só (um <code>AM=M-1</code> implícito), e o resultado ocupa a posição que sobrou — sem incrementar <code>SP</code> de volta.</p>
-<p>Comandos unários (<code>neg</code>, <code>not</code>) são ainda mais diretos, porque não há segundo operando a desempilhar:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// neg
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>@SP
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>A=M-1
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>M=-M
-</code></pre></div>
-<p><strong>Comparações</strong> (<code>eq</code>, <code>lt</code>, <code>gt</code>) são o caso mais elaborado, porque a VM não tem um comando de "comparar e produzir booleano" nativo em Assembly — é preciso simular com um salto condicional:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>// eq
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>@SP
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>AM=M-1
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>D=M
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>A=A-1
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>D=M-D           // D = primeiro - segundo (zero se iguais)
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>@TRUE_EQ_0
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>D;JEQ            // se D == 0, salta para o ramo &quot;verdadeiro&quot;
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>@SP
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>A=M-1
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>M=0             // falso: 0
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>@END_EQ_0
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>0;JMP
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>(TRUE_EQ_0)
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>@SP
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>A=M-1
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>M=-1             // verdadeiro: -1 (todos os bits em 1)
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>(END_EQ_0)
-</code></pre></div>
-<p><code>lt</code> e <code>gt</code> seguem exatamente o mesmo esqueleto, trocando apenas <code>JEQ</code> por <code>JLT</code>/<code>JGT</code>. E, como no capítulo 9, os rótulos (<code>TRUE_EQ_0</code>, <code>END_EQ_0</code>) precisam de um contador único por comando de comparação traduzido, para não colidir entre múltiplas comparações no mesmo arquivo.</p>
-<h2 id="uma-tabela-de-custos">Uma tabela de custos<a class="headerlink" href="#uma-tabela-de-custos" title="Permanent link">&para;</a></h2>
-<p>Vale a pena registrar, em número de instruções Assembly geradas, o custo relativo de cada comando VM — é uma boa intuição para entender por que um código VM aparentemente pequeno vira um Assembly bem maior:</p>
-<table>
-<thead>
-<tr>
-<th>Comando VM</th>
-<th>Instruções Assembly (aprox.)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>push constant</code></td>
-<td>7</td>
-</tr>
-<tr>
-<td><code>push</code>/<code>pop</code> segmento dinâmico</td>
-<td>10–12</td>
-</tr>
-<tr>
-<td><code>push</code>/<code>pop temp</code>/<code>static</code></td>
-<td>5–6</td>
-</tr>
-<tr>
-<td><code>add</code>/<code>sub</code>/<code>and</code>/<code>or</code></td>
-<td>5</td>
-</tr>
-<tr>
-<td><code>neg</code>/<code>not</code></td>
-<td>3</td>
-</tr>
-<tr>
-<td><code>eq</code>/<code>lt</code>/<code>gt</code></td>
-<td>~16</td>
-</tr>
-<tr>
-<td><code>label</code></td>
-<td>0 (é só um símbolo)</td>
-</tr>
-<tr>
-<td><code>goto</code></td>
-<td>2</td>
-</tr>
-<tr>
-<td><code>if-goto</code></td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<h2 id="exercicio-guiado">Exercício guiado<a class="headerlink" href="#exercicio-guiado" title="Permanent link">&para;</a></h2>
-<p>Sua atividade prática nesta parte do curso é implementar um <code>VMTranslator</code> que recebe um arquivo <code>.vm</code> (ou uma pasta com vários) e produz o <code>.asm</code> correspondente, cobrindo:</p>
-<ol>
-<li>Todos os comandos aritméticos/lógicos (<code>add</code>, <code>sub</code>, <code>neg</code>, <code>eq</code>, <code>gt</code>, <code>lt</code>, <code>and</code>, <code>or</code>, <code>not</code>).</li>
-<li><code>push</code>/<code>pop</code> para todos os oito segmentos.</li>
-<li>Rótulos únicos para cada comparação traduzida (um contador incremental é suficiente).</li>
-</ol>
-<p>Os testes oficiais do Nand2Tetris para esta parte (pasta <code>projects/07</code>) incluem <code>SimpleAdd</code>, <code>StackTest</code> (aritmética e lógica combinadas), <code>BasicTest</code>, <code>PointerTest</code> e <code>StaticTest</code> (os quatro segmentos e os dois casos especiais <code>pointer</code>/<code>static</code>) — rode cada <code>.asm</code> gerado no CPU Emulator e compare o estado final da RAM com o script <code>.tst</code>/<code>.cmp</code> de referência.</p>
-<h2 id="o-que-vem-a-seguir">O que vem a seguir<a class="headerlink" href="#o-que-vem-a-seguir" title="Permanent link">&para;</a></h2>
-<p>Esta parte cobre apenas metade do VM Translator — falta o controle de fluxo em escopo de função (rótulos qualificados) e, principalmente, o protocolo completo de <code>call</code>/<code>return</code> com <em>stack frames</em>, que é o que torna possível compilar chamadas de função recursivas. Essa é exatamente a fronteira que separa esta unidade da próxima: o capítulo 12, que abre a Unidade 3, completa o VM Translator (Project 8) antes de seguirmos para geração de código alvo e o Assembler.</p>
+<p>O VM Translator não é, estritamente, "geração de código alvo" no sentido mais estrito do termo (ele traduz entre duas representações textuais, ambas ainda "legíveis" por um humano treinado) — mas cumpre exatamente o papel que a geração de código alvo cumpre em um compilador tradicional: transformar uma representação independente de máquina em uma representação específica de uma arquitetura real. A diferença sutil é que aqui esse trabalho foi dividido em duas sub-etapas (VM → Assembly, Assembly → binário) em vez de uma só (IR → binário direto) — uma divisão que, como vimos no capítulo 7, tem tudo a ver com simplicidade de implementação.</p>
+<h2 id="por-que-uma-etapa-intermediaria-extra">Por que uma etapa intermediária extra<a class="headerlink" href="#por-que-uma-etapa-intermediaria-extra" title="Permanent link">&para;</a></h2>
+<p>Um compilador "clássico" de livro-texto costuma ir direto de uma IR para código de máquina binário. O Nand2Tetris insere Assembly Hack como uma parada intermediária <strong>legível por humanos</strong> entre a VM e o binário, por uma razão pedagógica e prática ao mesmo tempo: cada etapa da tradução — VM → Assembly (capítulos 11-12) e Assembly → binário (capítulo 15) — se torna pequena e independentemente verificável. Você pode ler o <code>.asm</code> gerado pelo seu VM Translator e confirmar, linha a linha, que ele faz sentido, antes de sequer pensar no Assembler. Compiladores de produção fazem escolhas semelhantes por razões de engenharia: o LLVM, por exemplo, tem uma IR textual (a "LLVM IR") que pode ser inspecionada exatamente por esse motivo — depurar em texto é mais fácil que depurar em binário.</p>
 
 
 

@@ -12,13 +12,13 @@
         <meta name="author" content="Prof. Sergio Costa">
       
       
-        <link rel="canonical" href="https://lambdageo.github.io/nand2tetris-compilador/unidade-3-backend/12-vm-translator-parte2/">
+        <link rel="canonical" href="https://lambdageo.github.io/nand2tetris-compilador/unidade-3-backend/13-vm-translator-parte2/">
       
       
-        <link rel="prev" href="../../unidade-2-middleend/11-vm-translator-parte1/">
+        <link rel="prev" href="../../unidade-2-middleend/12-vm-translator-parte1/">
       
       
-        <link rel="next" href="../13-geracao-codigo-alvo/">
+        <link rel="next" href="../14-geracao-codigo-alvo/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>12. VM Translator — Parte 2: controle de fluxo e funções - Compiladores — do zero ao Hack</title>
+        <title>13. VM Translator — Parte 2: controle de fluxo e funções - Compiladores — do zero ao Hack</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#12-vm-translator-parte-2-controle-de-fluxo-e-funcoes" class="md-skip">
+        <a href="#13-vm-translator-parte-2-controle-de-fluxo-e-funcoes" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              12. VM Translator — Parte 2: controle de fluxo e funções
+              13. VM Translator — Parte 2: controle de fluxo e funções
             
           </span>
         </div>
@@ -656,6 +656,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../unidade-2-middleend/08-a-vm-hack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. A VM Hack (especificação)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../unidade-2-middleend/09-codegen-expressoes-comandos/" class="md-nav__link">
         
   
@@ -773,14 +801,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../unidade-2-middleend/08-a-vm-hack/" class="md-nav__link">
+      <a href="../11-assembly-hack/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. A VM Hack (especificação)
+    11. Assembly Hack (especificação)
   
 
     
@@ -801,14 +829,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../unidade-2-middleend/11-vm-translator-parte1/" class="md-nav__link">
+      <a href="../../unidade-2-middleend/12-vm-translator-parte1/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    11. VM Translator — Parte 1: aritmética e memória
+    12. VM Translator — Parte 1: aritmética e memória
   
 
     
@@ -845,7 +873,7 @@
   <span class="md-ellipsis">
     
   
-    12. VM Translator — Parte 2: controle de fluxo e funções
+    13. VM Translator — Parte 2: controle de fluxo e funções
   
 
     
@@ -863,7 +891,7 @@
   <span class="md-ellipsis">
     
   
-    12. VM Translator — Parte 2: controle de fluxo e funções
+    13. VM Translator — Parte 2: controle de fluxo e funções
   
 
     
@@ -1003,14 +1031,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../13-geracao-codigo-alvo/" class="md-nav__link">
+      <a href="../14-geracao-codigo-alvo/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    13. Geração de código alvo (consolidação teórica)
+    14. Geração de código alvo (consolidação teórica)
   
 
     
@@ -1084,34 +1112,6 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../14-assembly-hack/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    14. Assembly Hack (especificação)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -1494,7 +1494,7 @@
   
 
 
-<h1 id="12-vm-translator-parte-2-controle-de-fluxo-e-funcoes">12. VM Translator — Parte 2: controle de fluxo e funções<a class="headerlink" href="#12-vm-translator-parte-2-controle-de-fluxo-e-funcoes" title="Permanent link">&para;</a></h1>
+<h1 id="13-vm-translator-parte-2-controle-de-fluxo-e-funcoes">13. VM Translator — Parte 2: controle de fluxo e funções<a class="headerlink" href="#13-vm-translator-parte-2-controle-de-fluxo-e-funcoes" title="Permanent link">&para;</a></h1>
 <p>A Parte 1 (capítulo 11) traduziu aritmética e acesso à memória — comandos que não atravessam fronteiras de função. Este capítulo fecha o VM Translator (Project 8) com a parte mais sofisticada do tradutor: <strong>rótulos com escopo de função</strong> e o protocolo completo de <strong>chamada de função</strong> (<code>call</code>/<code>function</code>/<code>return</code>), que é o que torna possível compilar recursão corretamente. Ao final, teremos uma cadeia de tradução completa: Jack → VM → Assembly Hack.</p>
 <h2 id="rotulos-com-escopo-de-funcao">Rótulos com escopo de função<a class="headerlink" href="#rotulos-com-escopo-de-funcao" title="Permanent link">&para;</a></h2>
 <p>Um <code>label LOOP</code> dentro de uma função não pode colidir com um <code>label LOOP</code> de outra — mas a VM (capítulo 8) não exige nomes globalmente únicos, só únicos <strong>dentro da função</strong>. A solução do VM Translator é qualificar cada rótulo com o nome da função corrente antes de traduzi-lo para Assembly:</p>

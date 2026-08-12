@@ -12,13 +12,13 @@
         <meta name="author" content="Prof. Sergio Costa">
       
       
-        <link rel="canonical" href="https://lambdageo.github.io/nand2tetris-compilador/unidade-3-backend/14-assembly-hack/">
+        <link rel="canonical" href="https://lambdageo.github.io/nand2tetris-compilador/unidade-3-backend/11-assembly-hack/">
       
       
-        <link rel="prev" href="../13-geracao-codigo-alvo/">
+        <link rel="prev" href="../../unidade-2-middleend/10-codegen-subrotinas-objetos/">
       
       
-        <link rel="next" href="../15-construindo-o-assembler/">
+        <link rel="next" href="../../unidade-2-middleend/12-vm-translator-parte1/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>14. Assembly Hack (especificação) - Compiladores — do zero ao Hack</title>
+        <title>11. Assembly Hack (especificação) - Compiladores — do zero ao Hack</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#14-assembly-hack-especificacao" class="md-skip">
+        <a href="#11-assembly-hack-especificacao" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              14. Assembly Hack (especificação)
+              11. Assembly Hack (especificação)
             
           </span>
         </div>
@@ -656,6 +656,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../unidade-2-middleend/08-a-vm-hack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. A VM Hack (especificação)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../unidade-2-middleend/09-codegen-expressoes-comandos/" class="md-nav__link">
         
   
@@ -716,8 +744,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -728,13 +758,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -755,185 +783,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
     Parte 3 — O Tradutor VM (Geração de Código Assembly)
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../unidade-2-middleend/08-a-vm-hack/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    8. A VM Hack (especificação)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../unidade-2-middleend/11-vm-translator-parte1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    11. VM Translator — Parte 1: aritmética e memória
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../12-vm-translator-parte2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    12. VM Translator — Parte 2: controle de fluxo e funções
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../13-geracao-codigo-alvo/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    13. Geração de código alvo (consolidação teórica)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Parte 4 — O Montador (Assembly para Código de Máquina)
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Parte 4 — O Montador (Assembly para Código de Máquina)
   
 
           </label>
@@ -962,7 +817,7 @@
   <span class="md-ellipsis">
     
   
-    14. Assembly Hack (especificação)
+    11. Assembly Hack (especificação)
   
 
     
@@ -980,7 +835,7 @@
   <span class="md-ellipsis">
     
   
-    14. Assembly Hack (especificação)
+    11. Assembly Hack (especificação)
   
 
     
@@ -1190,6 +1045,151 @@
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidade-2-middleend/12-vm-translator-parte1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. VM Translator — Parte 1: aritmética e memória
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-vm-translator-parte2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. VM Translator — Parte 2: controle de fluxo e funções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-geracao-codigo-alvo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Geração de código alvo (consolidação teórica)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 4 — O Montador (Assembly para Código de Máquina)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 4 — O Montador (Assembly para Código de Máquina)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1650,7 +1650,7 @@
   
 
 
-<h1 id="14-assembly-hack-especificacao">14. Assembly Hack (especificação)<a class="headerlink" href="#14-assembly-hack-especificacao" title="Permanent link">&para;</a></h1>
+<h1 id="11-assembly-hack-especificacao">11. Assembly Hack (especificação)<a class="headerlink" href="#11-assembly-hack-especificacao" title="Permanent link">&para;</a></h1>
 <p>Este capítulo especifica, por completo, a linguagem Assembly Hack — a linguagem simbólica para a qual o VM Translator (capítulos 11-12) traduz, e que o Assembler (capítulo 15) vai finalmente converter em código de máquina binário. É referência de consulta, não um capítulo incremental — mas vale lê-lo por inteiro pelo menos uma vez antes de atacar o Assembler, porque cada peça (registradores, instruções, símbolos) é usada o tempo todo no capítulo seguinte.</p>
 <h2 id="por-que-uma-linguagem-simbolica">Por que uma linguagem simbólica<a class="headerlink" href="#por-que-uma-linguagem-simbolica" title="Permanent link">&para;</a></h2>
 <p>Projetistas de processadores definem uma linguagem assembly — sequências de instruções mnemônicas que representam diretamente as operações do processador, mais símbolos que facilitam a escrita de programas (rótulos, comentários, constantes nomeadas). Tudo isso é, no fim, mapeado para código de máquina — números binários — por um montador. A vantagem é pura ergonomia: <code>@LOOP</code> é imensamente mais legível que o endereço numérico que ele representa, mas os dois significam exatamente a mesma coisa para a CPU.</p>
